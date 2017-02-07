@@ -11,7 +11,12 @@
 typedef NS_ENUM(NSInteger, DrawType) {
     DrawTypeLine1, // default
     DrawTypeLine2,
-    DrawTypeQuad
+    DrawTypeSideLine1,
+    DrawTypeSideLine2,
+    DrawTypePhoneLine1,
+    DrawTypePhoneLine2,
+    DrawTypePhoneSideLine1,
+    DrawTypePhoneSideLine2
 };
 
 @interface CustomView : UIView
@@ -22,9 +27,18 @@ typedef NS_ENUM(NSInteger, DrawType) {
 @property (nonatomic, assign) float y;
 @property (nonatomic, assign) CGPoint line1Pos;
 @property (nonatomic, assign) CGPoint line2Pos;
-@property (nonatomic, assign) CGPoint quadPos;
+@property (nonatomic, assign) CGPoint sideLine1Pos;
+@property (nonatomic, assign) CGPoint sideLine2Pos;
+@property (nonatomic, assign) CGPoint leftEdgePos;
+@property (nonatomic, assign) CGPoint rightEdgePos;
+@property (nonatomic, assign) CGPoint leftSideEdgePos;
+@property (nonatomic, assign) CGPoint rightSideEdgePos;
+@property (nonatomic, assign) CGPoint phoneLine1Pos;
+@property (nonatomic, assign) CGPoint phoneLine2Pos;
+@property (nonatomic, assign) CGPoint phoneSideLine1Pos;
+@property (nonatomic, assign) CGPoint phoneSideLine2Pos;
 
 
-- (void)move:(float)xPos yPos:(float)yPos type:(DrawType)type;
 - (void)move:(CGPoint)pos type:(DrawType)type;
+- (void)moveQuad:(CGPoint)pos endPos:(CGPoint)endPos type:(DrawType)type;
 @end
